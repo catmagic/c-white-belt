@@ -1,5 +1,5 @@
 #include<iostream>
-void UpdateIfGreater(int& a, int& b)
+void UpdateIfGreater(int a, int& b)
 {
 	if(a>b)
 	{
