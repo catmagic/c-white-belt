@@ -10,7 +10,7 @@ bool IsPalindrom(std::string s)
 	}
 	return true;
 }
-vector<std::string> PalindromFilter(vector<std::string> words, int minLength )
+vector<std::string> PalindromFilter(int minLength,vector<std::string> words )
 {
 	vector<std::string> result;
 	for(auto word :words)
