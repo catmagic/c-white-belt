@@ -1,22 +1,15 @@
 #include<iostream>
 int main()
 {
-	double n,a,b,x,y;
-	std::cin>>n>>a>>b>>x>>y;
-	if(n>b)
+	int a,b;
+	std::cin>>a>>b;
+	if(b)
 	{
-		std::cout<<(100.-y)*n/100;
+		std::cout<<a/b;
 	}
 	else
 	{
-		if(n>a)
-		{
-			std::cout<<(100.-x)*n/100;
-		}
-		else
-		{
-			std::cout<<n;
-		}
+		std::cout<<"Impossible";
 	}
 	return 0;
 }
