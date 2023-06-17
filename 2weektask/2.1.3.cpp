@@ -24,7 +24,7 @@ vector<std::string> PalindromFilter(vector<std::string> words, int minLength )
 }
 int main()
 {
-	vector<std::string> words
+	vector<std::string> words;
 	std::string word;
 	int n;
 	std::cin>>n;
