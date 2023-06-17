@@ -9,7 +9,8 @@ void UpdateIfGreater(int& a, int& b)
 int main()
 {
 	int a = 4;
-	int b = 2;
-	std::cout<<UpdateIfGreater(a, b);
+	int b = 2;UpdateIfGreater(a, b);
+	std::cout<<b;
+		
 	return 0;
 }
