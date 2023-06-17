@@ -22,7 +22,7 @@ vector<std::string> PalindromFilter(vector<std::string> words, int minLength )
 	}
 	return result;
 }
-int main()
+/*int main()
 {
 	vector<std::string> words;
 	std::string word;
@@ -35,4 +35,4 @@ int main()
 	}
 	std::cout<<PalindromFilter(s,2);
 	return 0;
-}
+}*/
