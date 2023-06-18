@@ -26,22 +26,24 @@ int main()
 		{
 			int k;
 			std::cin>>k;
-			if(k>0)
+			if(k!=0)
 			{
-				for(int j=0;j<k;++j)
+				if(k>0)
 				{
-					worry.push_back(false);
+					for(int j=0;j<k;++j)
+					{
+						worry.push_back(false);
+					}
 				}
-			}
-			else
-			{
-				k*=-1;
-				for(int j=0;j<k;++j)
+				else
 				{
-					worry.pop_back();
+					k*=-1;
+					for(int j=0;j<k;++j)
+					{
+						worry.pop_back();
+					}
 				}
-			}
-			worry[k]=false;
+			}	
 		}
 		if(command=="WORRY_COUNT")
 		{
@@ -55,6 +57,12 @@ int main()
 			}
 			std::cout<<k<<std::endl;
 		}
+		/*std::cout<<"[";
+		for(auto worr:worry)
+		{
+			std::cout<<worr<<' ';
+		}
+		std::cout<<"]"<<std::endl;*/
 		
 	}
 	return 0;
