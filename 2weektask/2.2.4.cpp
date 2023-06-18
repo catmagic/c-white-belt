@@ -1,6 +1,6 @@
 #include<iostream>
 #include<vector>
-std::vector<int> Reversed(std::vector<int>& v)
+std::vector<int> Reversed(const std::vector<int>& v)
 {
 	std::vector<int> res(v.size());
 	for(int i=0;i<v.size();++i)
