@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+using namespace std;
 vector<int> Reversed(const vector<int>& v)
 {
 	std::vector<int> res(v.size());
