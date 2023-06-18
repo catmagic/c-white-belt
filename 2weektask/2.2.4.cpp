@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-vector<int> Reversed(const vector<int>& v)
+vector<int>& Reversed(const vector<int>& v)
 {
 	std::vector<int> res(v.size());
 	for(int i=0;i<v.size();++i)
