@@ -46,7 +46,7 @@ int main() {
       std::cin >> country;
       if (mapCountryToCapital.find(country) != mapCountryToCapital.end()) {
         std::cout << "Country " << country << " has capital "
-                  << mapCountryToCapital[country];
+                  << mapCountryToCapital[country]<<std::endl;
       } else {
         std::cout << "Country " << country << " doesn't exist" << std::endl;
       }
@@ -55,7 +55,7 @@ int main() {
       if (mapCountryToCapital.size()) {
         for (auto item : mapCountryToCapital) {
           std::cout << item.first << '/' << item.second << " ";
-        }
+        }std::cout<<std::endl;
       } else {
         std::cout << "There are no countries in the world" << std::endl;
       }
