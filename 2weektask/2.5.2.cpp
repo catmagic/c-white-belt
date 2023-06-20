@@ -32,11 +32,15 @@ int main() {
       std::string oldCountry, newCountry;
       std::cin >> oldCountry >> newCountry;
       if (mapCountryToCapital.find(oldCountry) != mapCountryToCapital.end()) {
-        std::cout << "Country " << oldCountry << " with capital "
-                  << mapCountryToCapital[oldCountry] << " has been renamed to "
-                  << newCountry << std::endl;
-        mapCountryToCapital[newCountry] = mapCountryToCapital[oldCountry];
-        mapCountryToCapital.erase(oldCountry);
+        if (mapCountryToCapital.find(newCountry) == mapCountryToCapital.end()) {
+          std::cout << "Country " << oldCountry << " with capital "
+                    << mapCountryToCapital[oldCountry]
+                    << " has been renamed to " << newCountry << std::endl;
+          mapCountryToCapital[newCountry] = mapCountryToCapital[oldCountry];
+          mapCountryToCapital.erase(oldCountry);
+        } else {
+          std::cout << "Incorrect rename, skip" << std::endl;
+        }
       } else {
         std::cout << "Incorrect rename, skip" << std::endl;
       }
