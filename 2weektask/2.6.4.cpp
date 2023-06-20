@@ -19,7 +19,7 @@ int main() {
       std::cout << "Already exists for " << maptobus[stops] << std::endl;
     } else {
       int newBusPath = maptobus.size() + 1;
-      std::cout << "new bus " << newBusPath << std::endl;
+      std::cout << "New bus " << newBusPath << std::endl;
       maptobus[stops] = newBusPath;
     }
   }
