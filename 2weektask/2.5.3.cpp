@@ -8,10 +8,10 @@ int main() {
   map<string, vector<string>> stoptobus;
   int N;
   cin >> N;
-  cout << N;
-  cout << "nya\n";
+  //cout << N;
+  //cout << "nya\n";
   for (int i = 0; i < N; ++i) {
-    cout << "nya\n";
+    //cout << "nya\n";
     string command;
     cin >> command;
     if (command == "NEW_BUS") {
@@ -70,7 +70,7 @@ int main() {
         cout << "No buses" << endl;
       }
     }
-    cout << command << endl;
+    //cout << command << endl;
   }
   return 0;
 }
