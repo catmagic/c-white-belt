@@ -8,7 +8,7 @@ int main() {
   map<string, vector<string>> stoptobus;
   int N;
   cin >> N;
-
+  cout << "nya\n";
   for (int i = 0; i < N; ++i) {
     cout << "nya\n";
     string command;
