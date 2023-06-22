@@ -19,7 +19,7 @@ public:
 private:
 string s;
 };
-int main() {
+/*int main() {
   ReversibleString s("live");
   s.Reverse();
   cout << s.ToString() << endl;
@@ -33,4 +33,4 @@ int main() {
   cout << '"' << empty.ToString() << '"' << endl;
   
   return 0;
-}
+}*/
