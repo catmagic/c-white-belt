@@ -31,7 +31,7 @@ struct LectureTitle {
         this->course=course.value;
         this->week=week.value;
     }
-private:
+
   string specialization;
   string course;
   string week;
