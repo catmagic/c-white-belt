@@ -5,6 +5,7 @@
 #include<tuple>
 #include<sstream>
 #include<iomanip>
+#include<cctype>
 #include<exception>
 using namespace std;
 class Date {
@@ -30,12 +31,34 @@ istream& operator>>(istream& input,Date& date)
     stringstream ss;
     ss<<s;
     char first,second;
-    if(ss>>date.year>>first>>date.month>>second>>date.day)
+    if(ss>>date.year)
     {
-        if(first!=second&&first!='-')
+        if(ss.peek() != '-')
+        {
+
+            throw runtime_error(string("Wrong date format: ")+s );
+        }
+        ss.ignore(1);
+        if(ss.peek() != '+'&&!isdigit(ss.peek()))
         {
             throw runtime_error(string("Wrong date format: ")+s);
         }
+        if(ss.peek() == '+')
+        {
+             ss.ignore(1);
+        }
+        if(ss>>date.month){}
+        else{ throw runtime_error(string("Wrong date format: ")+s);}
+        if(ss.peek() != '-')
+        {
+            throw runtime_error(string("Wrong date format: ")+s);
+        }
+        ss.ignore(1);
+        if(ss.peek() != '+'&&!isdigit(ss.peek()))
+        {
+            throw runtime_error(string("Wrong date format: ")+s);
+        }if(ss>>date.day){}
+        else{ throw runtime_error(string("Wrong date format: ")+s);}
         if(date.month>12||date.month<1)
         {
             throw runtime_error(string("Month value is invalid: ")+to_string(date.month));
@@ -97,7 +120,6 @@ public:
         if(itDate!=db.end())
         {
             int countEvent=db[date].size();
-            db[date].clear();
             db.erase(date);
             return countEvent;
         }
@@ -106,9 +128,13 @@ public:
 
     void Find(const Date& date) const
     {
-        for(const auto event:db.at(date))
+        const auto it=db.find(date);
+        if(db.cend()!=it)
         {
-            cout<<event<<endl;
+            for(const auto event:db.at(date))
+            {
+                cout<<event<<endl;
+            }
         }
     }
 
