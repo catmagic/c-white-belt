@@ -70,7 +70,13 @@ public:
  // bool DeleteEvent(const Date& date, const string& event);
  // int  DeleteDate(const Date& date);
 
-  /* ??? */ //Find(const Date& date) const;
+    void Find(const Date& date) const
+    {
+        for(const auto event:db.at(date))
+        {
+            cout<<event<<endl;
+        }
+    }
 
     void Print() const
     {
@@ -108,6 +114,12 @@ int main() {
         if(command=="Print")
         {
             db.Print();
+        }
+        if(command=="Find")
+        {
+            Date date;
+            ss>>date;
+            db.Find(date);
         }
 
     }
