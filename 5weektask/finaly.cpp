@@ -47,6 +47,10 @@ istream& operator>>(istream& input,Date& date)
     }
     return input;
 }
+ostream& operator<<(ostream& output,const Date& date)
+{
+    return output<<date.GetYear()<<'-'<<date.GetMonth()<<'-'<<date.GetDay();
+}
 bool operator<(const Date& lhs, const Date& rhs)
 {
     return make_tuple(lhs.GetYear(),lhs.GetMonth(),lhs.GetDay())<make_tuple(rhs.GetYear(),rhs.GetMonth(),rhs.GetDay())
