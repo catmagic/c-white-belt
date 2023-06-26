@@ -36,7 +36,7 @@ istream& operator>>(istream& input,Date& date)
         {
             throw runtime_error(string("Wrong date format: ")+s);
         }
-        if(date.month>13||date.month<1)
+        if(date.month>12||date.month<1)
         {
             throw runtime_error(string("Month value is invalid: ")+to_string(date.month));
         }
