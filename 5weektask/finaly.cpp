@@ -40,9 +40,14 @@ istream& operator>>(istream& input,Date& date)
         {
             throw runtime_error(string("Month value is invalid: ")+to_string(date.month));
         }
-        if(date.day>31||date.month<1)
+        if(date.day>31||date.day<1)
         {
             throw runtime_error(string("Day value is invalid: ")+to_string(date.day));
+        }
+        char c;
+        if(ss>>c)
+        {
+            throw runtime_error(string("Wrong date format: ")+s);
         }
     }
     else
@@ -92,6 +97,7 @@ public:
         if(itDate!=db.end())
         {
             int countEvent=db[date].size();
+            db[date].clear();
             db.erase(date);
             return countEvent;
         }
@@ -132,8 +138,10 @@ int main() {
         ss<<fullcommand;
         string command;
         ss>>command;
+        bool flag=false;
         if(command=="Add")
         {
+            flag=true;
             Date date;
             string event;
             ss>>date>>event;
@@ -141,16 +149,19 @@ int main() {
         }
         if(command=="Print")
         {
+            flag=true;
             db.Print();
         }
         if(command=="Find")
         {
+            flag=true;
             Date date;
             ss>>date;
             db.Find(date);
         }
         if(command=="Del")
         {
+            flag=true;
             Date date;
             string event;
             ss>>date;
@@ -171,11 +182,20 @@ int main() {
                 cout<<"Deleted "<<countevent<<" events"<<endl;
             }
         }
+        if(!flag)
+        {
+            if(!command.empty())
+            {
+                throw runtime_error("Unknown command: "+command);
+            }
+        }
+
 
     }
     catch(exception &e)
     {
         cout<<e.what()<<endl;
+        return 0;
     }
 
   }
