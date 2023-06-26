@@ -67,8 +67,36 @@ public:
   {
     db[date].insert(event);
   }
- // bool DeleteEvent(const Date& date, const string& event);
- // int  DeleteDate(const Date& date);
+    bool DeleteEvent(const Date& date, const string& event)
+    {
+        auto itDate=db.find(date);
+        if(itDate!=db.end())
+        {
+            auto itEvent=db[date].find(event);
+            if(itEvent!=db[date].end())
+            {
+                db[date].erase(event);
+                if(db[date].size()==0)
+                {
+                    db.erase(date);
+                }
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
+    int  DeleteDate(const Date& date)
+    {
+        auto itDate=db.find(date);
+        if(itDate!=db.end())
+        {
+            int countEvent=db[date].size();
+            db.erase(date);
+            return countEvent;
+        }
+        return 0;
+    }
 
     void Find(const Date& date) const
     {
@@ -120,6 +148,28 @@ int main() {
             Date date;
             ss>>date;
             db.Find(date);
+        }
+        if(command=="Del")
+        {
+            Date date;
+            string event;
+            ss>>date;
+            if(ss>>event)
+            {
+                if(db.DeleteEvent(date,event))
+                {
+                    cout<<"Deleted successfully"<<endl;
+                }
+                else
+                {
+                    cout<<"Event not found"<<endl;
+                }
+            }
+            else
+            {
+                int countevent=db.DeleteDate(date);
+                cout<<"Deleted "<<countevent<<" events"<<endl;
+            }
         }
 
     }
